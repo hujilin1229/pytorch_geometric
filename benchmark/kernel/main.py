@@ -22,6 +22,7 @@ parser.add_argument('--batch_size', type=int, default=128)
 parser.add_argument('--lr', type=float, default=0.01)
 parser.add_argument('--lr_decay_factor', type=float, default=0.5)
 parser.add_argument('--lr_decay_step_size', type=int, default=50)
+parser.add_argument('--model', type=str, default='topk')
 args = parser.parse_args()
 
 # layers = [1, 2, 3, 4, 5]
@@ -30,24 +31,33 @@ args = parser.parse_args()
 layers = [3]
 hiddens = [32]
 datasets = ['MUTAG', 'PROTEINS', 'IMDB-BINARY', 'REDDIT-BINARY']  # , 'COLLAB']
-nets = [
-    # GCNWithJK,
-    # GraphSAGEWithJK,
-    # GIN0WithJK,
-    # GINWithJK,
-    # Graclus,
-    TopK,
-    SAGPool,
-    DiffPool,
-    EdgePool,
-    # GCN,
-    # GraphSAGE,
-    # GIN0,
-    # GIN,
-    # GlobalAttentionNet,
-    # Set2SetNet,
-    # SortPool,
-]
+
+if args.model == 'topk':
+    nets = [TopK]
+elif args.model == 'sagp':
+    nets = [SAGPool]
+elif args.model == 'diffpool':
+    nets = [DiffPool]
+else:
+    nets = [EdgePool]
+# nets = [
+#     # GCNWithJK,
+#     # GraphSAGEWithJK,
+#     # GIN0WithJK,
+#     # GINWithJK,
+#     # Graclus,
+#     TopK,
+#     SAGPool,
+#     DiffPool,
+#     EdgePool,
+#     # GCN,
+#     # GraphSAGE,
+#     # GIN0,
+#     # GIN,
+#     # GlobalAttentionNet,
+#     # Set2SetNet,
+#     # SortPool,
+# ]
 
 
 def logger(info):
