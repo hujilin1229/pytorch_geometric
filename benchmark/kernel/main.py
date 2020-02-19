@@ -28,22 +28,22 @@ layers = [1, 2, 3, 4, 5]
 hiddens = [16, 32, 64, 128]
 datasets = ['MUTAG', 'PROTEINS', 'IMDB-BINARY', 'REDDIT-BINARY']  # , 'COLLAB']
 nets = [
-    GCNWithJK,
-    GraphSAGEWithJK,
-    GIN0WithJK,
-    GINWithJK,
-    Graclus,
+    # GCNWithJK,
+    # GraphSAGEWithJK,
+    # GIN0WithJK,
+    # GINWithJK,
+    # Graclus,
     TopK,
     SAGPool,
     DiffPool,
     EdgePool,
-    GCN,
-    GraphSAGE,
-    GIN0,
-    GIN,
-    GlobalAttentionNet,
-    Set2SetNet,
-    SortPool,
+    # GCN,
+    # GraphSAGE,
+    # GIN0,
+    # GIN,
+    # GlobalAttentionNet,
+    # Set2SetNet,
+    # SortPool,
 ]
 
 
